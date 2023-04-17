@@ -1,0 +1,2397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/images/favicon.20230403114551260.ico" type="image/x-icon">
+<link rel='canonical' href='https://www.mathworks.com/matlabcentral/cody/players/5349647'><meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script src="/etc.clientlibs/mathworks/clientlibs/customer-ui/components/webvitals.min.20230403114551260.js"></script><script src="/etc.clientlibs/mathworks/clientlibs/customer-ui/components/jquery.min.20230403114551260.js"></script><script src="/etc.clientlibs/mathworks/clientlibs/customer-ui/components/jquery-migrate.min.20230403114551260.js"></script><link rel="stylesheet" href="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common.min.20230403114551260.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/footer.min.20230403114551260.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/matlabcentral.min.20230403114551260.css" type="text/css">
+<link href="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/fonts/roboto/roboto-latin-italic-400.20230403114551260.woff2" rel="preload" as="font" type="font/woff2" crossorigin>
+<link href="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/fonts/roboto/roboto-latin-italic-500.20230403114551260.woff2" rel="preload" as="font" type="font/woff2" crossorigin>
+<link href="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/fonts/roboto/roboto-latin-italic-700.20230403114551260.woff2" rel="preload" as="font" type="font/woff2" crossorigin>
+<link href="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/fonts/roboto/roboto-latin-normal-400.20230403114551260.woff2" rel="preload" as="font" type="font/woff2" crossorigin>
+<link href="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/fonts/roboto/roboto-latin-normal-500.20230403114551260.woff2" rel="preload" as="font" type="font/woff2" crossorigin>
+<link href="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/fonts/roboto/roboto-latin-normal-700.20230403114551260.woff2" rel="preload" as="font" type="font/woff2" crossorigin>
+<link href="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/fonts/mathworks.20230403114551260.woff" rel="preload" as="font" type="font/woff" crossorigin>
+<script id="analyticsDigitalData">digitalData = {
+ "pageInstanceID" : document.title,
+ "page" : {
+   "pageInfo" : {
+     "pageID" : window.location.pathname.replace(/\/$/, '').replace(/\.(\w)+$/, ''),
+     "destinationURL" : window.location.href
+   },
+   "category" : {
+     "primaryCategory" : "matlabcentral",
+     "subCategory1" : "matlabcentral/cody",
+     "subCategory2" : ""
+   },
+   "attributes" : {
+    }
+ },
+ "product" : [ {
+   "productInfo" : { }
+ } ],
+ "component" : [ ],
+ "events" : [ ],
+ "user": [ ]
+};
+</script><script>(function(g,b,d,f){(function(a,c,d){if(a){var e=b.createElement("style");e.id=c;e.innerHTML=d;a.appendChild(e)}})(b.getElementsByTagName("head")[0],"at-body-style",d);setTimeout(function(){var a=b.getElementsByTagName("head")[0];if(a){var c=b.getElementById("at-body-style");c&&a.removeChild(c)}},f)})(window,document,"[class*='personalization-container']:not([id^='web-application']) {opacity: 0 !important}",1E3);</script><script src="//assets.adobedtm.com/d0cc0600946eb3957f703b9fe43c3590597a8c2c/satelliteLib-e8d23c2e444abadc572df06537e2def59c01db09.js" async></script><title>goc3 - MATLAB Cody - MATLAB Central
+</title>
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="sMg2R5FknhKrbxSio7DAqVdwI6V2F5lVbrnP6rBoQJt15Afs+rRGOEIDW46rYrqlrffaD5xXtc/2Fb2ij6ArDw==" />
+
+<link href="/matlabcentral/cody/stylesheets/lt_ui_overrides.css" rel="stylesheet" type="text/css">
+<link href="/matlabcentral/cody/stylesheets/getting_started_banner.css" rel="stylesheet" type="text/css">
+<link href="/matlabcentral/cody/stylesheets/cody.css" rel="stylesheet" type="text/css">
+
+<link href="/matlabcentral/cody/stylesheets/jquery.jqplot.min.css?1455222191" media="screen" rel="stylesheet" type="text/css" />
+<link href="/matlabcentral/cody/stylesheets/chosen.min.css?1455222191" media="screen" rel="stylesheet" type="text/css" />
+<script src="/matlabcentral/cody/javascripts/jquery_ujs.js?1455222175" type="text/javascript"></script>
+<script src="/matlabcentral/cody/javascripts/jquery-ui.min.js?1455222175" type="text/javascript"></script>
+<script src="/matlabcentral/cody/javascripts/application.js?1455222175" type="text/javascript"></script>
+<script src = "/matlabcentral/jscript/announcements_v1.js" data-app-name ="Cody"></script>
+<script src = "https://www.mathworks.com/matlabcentral/jscript/profile_card_v1.3.js" data-app-name="cody"></script>
+
+<script src = "/matlabcentral/jscript/GroupTypeaheadView.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#codysearch').each(function () {
+        var typeaheadView = new GroupTypeaheadView({el: $(this), app: "cody", site_language: "en"});
+    });
+ });
+</script>
+
+<script type="text/javascript">
+  // makerzone callout javascript
+  $(document).ready(function() {
+    $(".random_callout").each(function() {
+      var callouts = $(this).find(".panel");
+      callouts.hide().eq(Math.floor((Math.random()*callouts.length))).show();
+    });
+
+    $("a.disabled").on("click",function(event){
+	event.preventDefault();
+    });
+
+  });
+</script>
+<script>
+//visual indicator for spam moderation pending contents for moderators
+</script>
+
+
+                              <script>!function(a){var e="https://s.go-mpulse.net/boomerang/",t="addEventListener";if("False"=="True")a.BOOMR_config=a.BOOMR_config||{},a.BOOMR_config.PageParams=a.BOOMR_config.PageParams||{},a.BOOMR_config.PageParams.pci=!0,e="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="LERXA-6VNES-W6PXS-U8C7F-BXSZH",function(){function n(e){a.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!a.BOOMR||!a.BOOMR.version&&!a.BOOMR.snippetExecuted){a.BOOMR=a.BOOMR||{},a.BOOMR.snippetExecuted=!0;var i,_,o,r=document.createElement("iframe");if(a[t])a[t]("load",n,!1);else if(a.attachEvent)a.attachEvent("onload",n);r.src="javascript:void(0)",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="width:0;height:0;border:0;display:none;",o=document.getElementsByTagName("script")[0],o.parentNode.insertBefore(r,o);try{_=r.contentWindow.document}catch(O){i=document.domain,r.src="javascript:var d=document.open();d.domain='"+i+"';void(0);",_=r.contentWindow.document}_.open()._l=function(){var a=this.createElement("script");if(i)this.domain=i;a.id="boomr-if-as",a.src=e+"LERXA-6VNES-W6PXS-U8C7F-BXSZH",BOOMR_lstart=(new Date).getTime(),this.body.appendChild(a)},_.write("<bo"+'dy onload="document._l();">'),_.close()}}(),"".length>0)if(a&&"performance"in a&&a.performance&&"function"==typeof a.performance.setResourceTimingBufferSize)a.performance.setResourceTimingBufferSize();!function(){if(BOOMR=a.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var e=""=="true"?1:0,t="",n="va6uxbaxh4me4zb5yg5a-f-471a4c312-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,_={"ak.v":"34","ak.cp":"1460359","ak.ai":parseInt("195948",10),"ak.ol":"0","ak.cr":2,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"1bb6ec9a","ak.r":39719,"ak.a2":e,"ak.m":"x","ak.n":"essl","ak.bpcip":"168.61.75.0","ak.cport":65472,"ak.gh":"23.223.247.71","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.csrc":"-","ak.acc":"reno","ak.t":"1681768890","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==VbcKfqat2Zwej0Ty0J0e0WhkPvD3VGQVrfTJNqivf6JiQ/Xgmbn58cI6T1idypvcw9x83Q6PqHRNTWKxhVI4vUf74yW+WDcYzjhdAEcGMd/bAj4HDlB3xRopL+T7fZiE0Rw8ldFXeFqDWGfvYI9jMQoJAzkR/3ktaU+KhBOsF9RR1Gjmds4KymRD6fH/zSmxGGqpd21em/QTlViQUXnMqqyztsPRljyssPT55kJy+OyFXyOkJOZN1zxano2UL9MQHJRsa0ZM/3KQ1EtZrN2D3XpNtxnyDH36p/H6D2EO9gloQYWIrrILREXE1j6xJ3sNtU9T8RhU4XLNgCK+u8dpMfDq1a+WBJivY7/V7WGx5iEfsmo8U14oR4aMgkvnfmm7tEncuElw5YEyJnkoq1ET/d2dHkfQFY8JmXPl+pkGg/8=","ak.pv":"163","ak.dpoabenc":"","ak.tf":i};if(""!==t)_["ak.ruds"]=t;var o={i:!1,av:function(e){var t="http.initiator";if(e&&(!e[t]||"spa_hard"===e[t]))_["ak.feo"]=void 0!==a.aFeoApplied?1:0,BOOMR.addVar(_)},rv:function(){var a=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(a)}};BOOMR.plugins.AK={akVars:_,akDNSPreFetchDomain:n,init:function(){if(!o.i){var a=BOOMR.subscribe;a("before_beacon",o.av,null,null),a("onbeacon",o.rv,null,null),o.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script><script >bazadebezolkohpepadr="2145064609"</script><script type="text/javascript" src="https://www.mathworks.com/akam/13/7fdb16d0"  defer></script></head>
+<body class="
+		   
+		   templateservice
+		  
+		  
+		  " data-label-chat-online="Chat with Support" data-label-chat-offline="Chat is Offline" data-label-chatbot="Start MathWorks Bot" data-image-chatbot="/content/dam/mathworks/mathworks-dot-com/images/responsive/logos/chatbot.png">
+
+	<a class="skip_link sr-only" href="#skip_link_anchor" tabindex="1">Skip to content</a>
+
+	
+
+
+
+<!-- Mobile TopNav: Start -->
+<div class="header visible-xs visible-sm" id="header_mobile">
+	<nav class="navbar navbar-default" role="navigation"><div class="navbar-header">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-3">
+						<button type="button" class="navbar-toggle topnav_toggle" tabindex="1" data-toggle="collapse" data-target="#topnav_collapse">
+							<span class="sr-only">Toggle Main Navigation</span>
+							<span class="icon-menu"></span>
+						</button>
+					</div>
+					<div class="col-xs-6">
+						<div class="text-center">
+							<a href="/?s_tid=gn_logo" class="svg_link navbar-brand" tabindex="3">
+								<img src="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/images/pic-header-mathworks-logo.20230403114551260.svg" class="mw_logo" alt="MathWorks - Mobile View"></a>
+						</div>
+					</div>
+					<div class="col-xs-3">
+						<div class="matrix_affordance_container_mobile" id="matrix_affordance_container_mobile"></div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row visible-xs visible-sm">
+					<div class="col-xs-12">
+						<div class="navbar-collapse collapse" id="topnav_collapse">
+							<div class="topNavigation topnavigation containsResourceName resourceClass-topnavigation">
+
+<ul class="nav navbar-nav topnav" id="topnav_mobile">
+<li class="headernav_login" style="display: none;">
+	<a class="mwa-nav_login" tabindex="2" title="Sign In to Your MathWorks Account"><span class="visible-xs visible-sm">Sign In <span class="sr-only visually-hidden">to Your MathWorks Account</span></span></a>
+</li>
+<li class="headernav_logout dropdown" style="display: none;">
+	<a href="#" role="button" title="Access your MathWorks Account" aria-haspopup="menu" aria-controls="mw_nav_mobile" class="dropdown-toggle mwa_image_drop_down" data-toggle="dropdown" tabindex="2">
+		<span class="visible-xs visible-sm">
+			<span class="mobile_account_image"></span>
+			<span class="mobile_account_name" aria-hidden="true"></span>
+			<b class="caret"></b>
+		</span>
+	</a>
+	<ul role="menu" class="dropdown-menu" id="mw_nav_mobile">
+<li class="mwa-nav_account"><a role="menuitem" class="mwa-account" tabindex="2">My Account</a></li>
+		<li class="mwa-nav_community"><a role="menuitem" class="mwa-community-profile" tabindex="2">My Community Profile</a></li>
+		<li class="mwa-nav_associate"><a role="menuitem" class="mwa-link-license" tabindex="2">Link License</a></li>
+		<li class="mwa-nav_logout">
+<a role="menuitem" class="mwa-logout" tabindex="2">Sign Out</a>
+		</li>
+	</ul>
+</li>
+
+
+	
+	
+		<li class="topnav_products ">
+			<a href="/products.html?s_tid=gn_ps" tabindex="2">Products</a>
+		</li>
+	
+		<li class="topnav_solutions ">
+			<a href="/solutions.html?s_tid=gn_sol" tabindex="2">Solutions</a>
+		</li>
+	
+		<li class="topnav_academia ">
+			<a href="/academia.html?s_tid=gn_acad" tabindex="2">Academia</a>
+		</li>
+	
+		<li class="topnav_support ">
+			<a href="/help/?s_tid=gn_supp" tabindex="2">Support</a>
+		</li>
+	
+		<li class="topnav_community ">
+			<a href="/matlabcentral/?s_tid=gn_mlc" tabindex="2">Community</a>
+		</li>
+	
+		<li class="topnav_events ">
+			<a href="/company/events.html?s_tid=gn_ev" tabindex="2">Events</a>
+		</li>
+	
+	
+		<li class="headernav_store">
+			<a href="https://login.mathworks.com/embedded-login/landing.html?cid=getmatlab&amp;s_tid=gn_getml" tabindex="2">Get MATLAB</a>
+		</li>
+	
+</ul>
+</div>
+
+						</div>
+						<div class="navbar-collapse collapse" id="matrix_collapse">
+							<div class="matrix_menu_container_mobile" id="matrix_menu_container_mobile"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+</div>
+<!-- Mobile TopNav: End -->
+<!-- Desktop TopNav: Start -->
+<div class="header hidden-xs hidden-sm" id="header_desktop">
+	<nav class="navbar navbar-default" role="navigation"><div class="container">
+			<div class="row">
+				<div class="col-md-9">
+					<div class="navbar-header">
+						<div class="logo_container hidden-xs hidden-sm">
+							<a href="/?s_tid=gn_logo" class="svg_link pull-left" tabindex="1">
+								<img src="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/images/pic-header-mathworks-logo.20230403114551260.svg" class="mw_logo" alt="MathWorks"></a>
+						</div>
+						<div class="navbar-collapse collapse hidden-xs hidden-sm">
+							
+							<div class="topNavigation topnavigation containsResourceName resourceClass-topnavigation">
+
+
+
+
+
+	
+
+	<ul id="topnav_desktop" class="nav navbar-nav topnav">
+<li class="topnav_products ">
+			<a href="/products.html?s_tid=gn_ps" tabindex="2">Products</a> 
+		</li>
+	
+		<li class="topnav_solutions ">
+			<a href="/solutions.html?s_tid=gn_sol" tabindex="2">Solutions</a> 
+		</li>
+	
+		<li class="topnav_academia ">
+			<a href="/academia.html?s_tid=gn_acad" tabindex="2">Academia</a> 
+		</li>
+	
+		<li class="topnav_support ">
+			<a href="/help/?s_tid=gn_supp" tabindex="2">Support</a> 
+		</li>
+	
+		<li class="topnav_community ">
+			<a href="/matlabcentral/?s_tid=gn_mlc" tabindex="2">Community</a> 
+		</li>
+	
+		<li class="topnav_events ">
+			<a href="/company/events.html?s_tid=gn_ev" tabindex="2">Events</a> 
+		</li>
+	</ul>
+</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="headerNavigation headernavigation containsResourceName resourceClass-headernavigation">
+<div class="collapse navbar-collapse" id="headernav_collapse">
+	<ul class="nav navbar-nav navbar-right" id="headernav">
+<li class="headernav_store"><a href="https://login.mathworks.com/embedded-login/landing.html?cid=getmatlab&amp;s_tid=gn_getml" class="btn btn_color_blue companion_btn btn-xs" tabindex="2">Get MATLAB</a></li>
+		
+		
+			
+
+<li class="headernav_login" style="display: none;">
+	<a class="mwa-nav_login" tabindex="2" title="Sign In to Your MathWorks Account"><span class="visible-xs visible-sm">Sign In <span class="sr-only visually-hidden">to Your MathWorks Account</span></span></a>
+</li>
+<li class="headernav_logout dropdown" style="display: none;">
+	<a href="#" role="button" title="Access your MathWorks Account" aria-haspopup="menu" aria-controls="mw_nav_desktop" class="dropdown-toggle mwa_image_drop_down" data-toggle="dropdown" tabindex="2">
+		<span class="visible-xs visible-sm">
+			<span class="mobile_account_image"></span>
+			<span class="mobile_account_name" aria-hidden="true"></span>
+			<b class="caret"></b>
+		</span>
+	</a>
+	<ul role="menu" class="dropdown-menu" id="mw_nav_desktop">
+<li class="mwa-nav_account"><a role="menuitem" class="mwa-account" tabindex="2">My Account</a></li>
+		<li class="mwa-nav_community"><a role="menuitem" class="mwa-community-profile" tabindex="2">My Community Profile</a></li>
+		<li class="mwa-nav_associate"><a role="menuitem" class="mwa-link-license" tabindex="2">Link License</a></li>
+		<li class="mwa-nav_logout">
+<a role="menuitem" class="mwa-logout" tabindex="2">Sign Out</a>
+		</li>
+	</ul>
+</li>
+
+
+		
+		<li id="headernav_matrix" class="headernav_matrix">
+	</ul>
+</div>
+</div>
+
+				</div>
+			</div>
+		</div>
+	</nav>
+</div>
+<!-- Desktop TopNav: End -->
+
+
+
+	<div class="sticky_header_container includes_subnav">
+		<!-- Section Header: Start -->
+		<div class="section_header level_3">
+			<div class="container">
+				<div class="row" id="mobile_search_row">
+					<div class="col-sm-6 col-md-7" id="section_header_title">
+						<div>
+<div class="sectionHead sectionhead containsResourceName resourceClass-sectionhead">
+
+
+	<div class="section_header_content">
+		<div class="section_header_title"><p class="h1">
+				<a href="/matlabcentral/cody/" class="add_cursor_pointer">Cody</a>
+				
+			</p></div>
+		
+			<button type="button" class="navbar-toggle collapsed subnav visible-xs visible-sm" data-toggle="collapse" data-target=".mobile_subnav_content" aria-label="Mobile Navigation"> <span class="icon-arrow-down icon_24"><span class="sr-only">Toggle Sub Navigation</span></span> </button>
+		
+	</div>
+</div>
+</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-5" id="mobile_search">
+						<div>
+<div class="sectionHeadSearchBox sectionheadsearchbox containsResourceName resourceClass-sectionheadsearchbox">
+
+
+
+    
+<script src="/etc.clientlibs/mathworks/clientlibs/customer-ui/components/sectionheadsearchbox.min.20230403114551260.js"></script><div class="search_nested_content_container">
+	
+	<div id="search_scope_site" class="collapse in"><div class="search_nested_content_container">
+    <!-- Search Cody Problems -->
+    <div id="search_scope_cody" class="collapse in">
+        <form id="cody_search_form" name="mlcsearch_form" method="get" data-language="en" action="/matlabcentral/cody/problems">
+            <div class="input-group tokenized_search_field">
+                <label class="sr-only">Search Cody</label>
+                <input type="text" class="form-control conjoined_search cody-search" autocomplete="off" name="term"
+                    placeholder="Search Cody Problems" id="codysearch" value="">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown"
+                        tabindex="-1"><span class="caret"></span><span class="search_scope_label">Cody</span></button>
+                    <ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+                        <li data-toggle="collapse" data-target="#search_scope_mlc" class="mlc_search_scope_trigger"><a
+                                href="#">MATLAB Central</a></li>
+                        <li data-toggle="collapse" data-target="#search_scope_mw" class="site_search_scope_trigger"><a
+                                href="#">MathWorks</a></li>
+                    </ul>
+                    <script>
+                        window.addEventListener('DOMContentLoaded', function () {
+                            $(".mlc_search_scope_trigger, .site_search_scope_trigger").click(function () {
+                                $("#search_scope_cody").removeClass("in");
+                                $("#query").val($("#search_scope_mlc").val());
+                            });
+                        });
+                    </script>
+                    <button type="submit" name="submitsearch" id="submitsearch"
+                        class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- End Search Cody Problems -->
+    <!-- Search Cody Players -->
+    <div id="search_scope_cody_players" class="collapse">
+        <form id="cody_search_form" name="mlcsearch_form" method="get" data-language="en" action="">
+            <div class="input-group tokenized_search_field">
+                <label class="sr-only">Search Cody Players</label>
+                <input type="text" class="form-control conjoined_search cody-search" autocomplete="off" name="term"
+                    placeholder="Search Cody Players" id="codysearch_players" value="">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown"
+                        tabindex="-1"><span class="caret"></span><span class="search_scope_label">Cody</span></button>
+                    <ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+                        <li data-toggle="collapse" data-target="#search_scope_mlc" class="mlc_search_scope_trigger"><a
+                                href="#">MATLAB Central</a></li>
+                        <li data-toggle="collapse" data-target="#search_scope_mw" class="site_search_scope_trigger"><a
+                                href="#">MathWorks</a></li>
+                    </ul>
+                    <script>
+                        window.addEventListener('DOMContentLoaded', function () {
+                            $(".mlc_search_scope_trigger, .site_search_scope_trigger").click(function () {
+                                $("#search_scope_cody_players").removeClass("in");
+                                $("#query").val($("#search_scope_mlc").val());
+                            });
+                        });
+                    </script>
+                    <button type="submit" name="submitsearch" id="submitsearch"
+                        class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- End Search Cody Players -->
+    <!-- Search Cody Solutions -->
+    <div id="search_scope_cody_solutions" class="collapse">
+        <form id="cody_search_form" name="mlcsearch_form" method="get" data-language="en" action="">
+            <div class="input-group tokenized_search_field">
+                <label class="sr-only">Search Cody Solutions</label>
+                <input type="text" class="form-control conjoined_search cody-search" autocomplete="off" name="term"
+                    placeholder="Search Cody Solutions" id="codysearch_solutions" value="">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown"
+                        tabindex="-1"><span class="caret"></span><span class="search_scope_label">Cody</span></button>
+                    <ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+                        <li data-toggle="collapse" data-target="#search_scope_mlc" class="mlc_search_scope_trigger"><a
+                                href="#">MATLAB Central</a></li>
+                        <li data-toggle="collapse" data-target="#search_scope_mw" class="site_search_scope_trigger"><a
+                                href="#">MathWorks</a></li>
+                    </ul>
+                    <script>
+                        window.addEventListener('DOMContentLoaded', function () {
+                            $(".mlc_search_scope_trigger, .site_search_scope_trigger").click(function () {
+                                $("#search_scope_cody_players").removeClass("in");
+                                $("#query").val($("#search_scope_mlc").val());
+                            });
+                        });
+                    </script>
+                    <button type="submit" name="submitsearch" id="submitsearch"
+                        class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- End Search Cody Solutions -->
+    <!-- Search Cody Activity -->
+    <div id="search_scope_cody_activities" class="collapse">
+        <form id="cody_search_form" name="mlcsearch_form" method="get" data-language="en" action="">
+            <div class="input-group tokenized_search_field">
+                <label class="sr-only">Search Cody Activity</label>
+                <input type="text" class="form-control conjoined_search cody-search" autocomplete="off" name="term"
+                    placeholder="Search Cody Activity" id="codysearch_activities" value="">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown"
+                        tabindex="-1"><span class="caret"></span><span class="search_scope_label">Cody</span></button>
+                    <ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+                        <li data-toggle="collapse" data-target="#search_scope_mlc" class="mlc_search_scope_trigger"><a
+                                href="#">MATLAB Central</a></li>
+                        <li data-toggle="collapse" data-target="#search_scope_mw" class="site_search_scope_trigger"><a
+                                href="#">MathWorks</a></li>
+                    </ul>
+                    <script>
+                        window.addEventListener('DOMContentLoaded', function () {
+                            $(".mlc_search_scope_trigger, .site_search_scope_trigger").click(function () {
+                                $("#search_scope_cody_players").removeClass("in");
+                                $("#query").val($("#search_scope_mlc").val());
+                            });
+                        });
+                    </script>
+                    <button type="submit" name="submitsearch" id="submitsearch"
+                        class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- End Search Cody Activity -->
+    <!-- Search Cody Groups -->
+    <div id="search_scope_cody_groups" class="collapse">
+        <form id="cody_search_form" name="mlcsearch_form" method="get" data-language="en" action="">
+            <div class="input-group tokenized_search_field">
+                <label class="sr-only">Search Cody Groups</label>
+                <input type="text" class="form-control conjoined_search cody-search" autocomplete="off" name="term"
+                    placeholder="Search Cody Groups" id="codysearch_groups" value="">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown"
+                        tabindex="-1"><span class="caret"></span><span class="search_scope_label">Cody</span></button>
+                    <ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+                        <li data-toggle="collapse" data-target="#search_scope_mlc" class="mlc_search_scope_trigger"><a
+                                href="#">MATLAB Central</a></li>
+                        <li data-toggle="collapse" data-target="#search_scope_mw" class="site_search_scope_trigger"><a
+                                href="#">MathWorks</a></li>
+                    </ul>
+                    <script>
+                        window.addEventListener('DOMContentLoaded', function () {
+                            $(".mlc_search_scope_trigger, .site_search_scope_trigger").click(function () {
+                                $("#search_scope_cody_groups").removeClass("in");
+                                $("#query").val($("#search_scope_mlc").val());
+                            });
+                        });
+                    </script>
+                    <button type="submit" name="submitsearch" id="submitsearch"
+                        class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- End Search Cody Groups -->
+    <!-- Search MLC -->
+    <div id="search_scope_mlc" class="collapse">
+        <form id="mlcsearch_form" name="mlcsearch_form" method="get" data-language="en" action="/search/site_search.html">
+            <div class="input-group tokenized_search_field">
+                <label class="sr-only">Search MATLAB Central</label>
+                <input type="text" class="form-control conjoined_search" autocomplete="off" name="q"
+                    placeholder="Search MATLAB Central" id="mlcsearch">
+                <input type="hidden" name="c[]" value="matlabcentral">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown"
+                        tabindex="-1"><span class="caret"></span><span class="search_scope_label">MATLAB
+                            Central</span></button>
+                    <ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+                        <li data-toggle="collapse" data-target="#search_scope_cody"
+                            class="cody_problems_search_scope_trigger"><a href="#">Cody Problems</a></li>
+                        <li data-toggle="collapse" data-target="#search_scope_mw" class="site_search_scope_trigger"><a
+                                href="#">MathWorks</a></li>
+                    </ul>
+                    <script>
+                        window.addEventListener('DOMContentLoaded', function () {
+                            $(".cody_problems_search_scope_trigger, .site_search_scope_trigger").click(function () {
+                                $("#search_scope_mlc").removeClass("in");
+                                $("#query").val($("#mlcsearch").val());
+                            });
+                        });
+                    </script>
+                    <button type="submit" name="submitsearch" id="submitsearch"
+                        class="btn icon-search btn_search_adjacent btn_search icon_16" tabindex="-1"></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- End Search MLC -->
+    <!-- Search MathWorks.com -->
+    <div id="search_scope_mw" class="collapse">
+        <form name="search" id="site_search" class="site_search" action="/search.html" method="get">
+            <div class="input-group">
+                <label class="sr-only">Search MathWorks.com</label>
+                <input type="hidden" name="c[]" value="entire_site">
+                <input type="text" name="q" id="query" class="form-control conjoined_search"
+                    placeholder="Search MathWorks.com" autocomplete="off" \="">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn_search_adjacent dropdown-toggle" data-toggle="dropdown"
+                        tabindex="-1"><span class="caret"></span><span class="search_scope_label">MathWorks</span></button>
+                    <ul class="dropdown-menu list-unstyled dropdown-menu-right" role="menu">
+                        <li data-toggle="collapse" data-target="#search_scope_cody"
+                            class="cody_problems_search_scope_trigger"><a href="#">Cody Problems</a></li>
+                        <li data-toggle="collapse" data-target="#search_scope_mlc" class="mlc_search_scope_trigger"><a
+                                href="#">MATLAB Central</a></li>
+                    </ul>
+                    <script>
+                        window.addEventListener('DOMContentLoaded', function () {
+                            $(".mlc_search_scope_trigger, .cody_problems_search_scope_trigger").click(function () {
+                                $("#search_scope_mw").removeClass("in");
+                                $("#query").val($("#mlcsearch").val());
+                            });
+                        });
+                    </script>
+                    <button type="submit" id="searchbutton" class="btn icon-search btn_search_adjacent btn_search icon_16"
+                        tabindex="-1"></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div></div>
+	
+		<script>
+			$(".search_scope_trigger").click(function handlerSearch(event) {
+				var target1 = event.target.parentNode.attributes.getNamedItem("data-groupid").nodeValue;
+				$('#' + target1).removeClass("in");
+			});
+		</script>
+</div>
+<button class="btn icon-remove btn_search pull-right icon_32 visible-xs" data-toggle="collapse" data-target="#mobile_search" aria-expanded="false" aria-controls="mobile_search"><span class="sr-only">Close Mobile Search</span>
+</button>
+
+</div>
+</div>
+					</div>
+					<div class="visible-xs" id="search_actuator">
+						<button class="btn icon-search btn_search pull-right icon_16 containsResourceName resourceClass-button" data-toggle="collapse" data-target="#mobile_search" aria-expanded="false" aria-controls="mobile_search"><span class="sr-only">Close Mobile Search</span></button>
+					</div>
+				</div>
+				<!-- Mobile Local Nav: Start -->
+				<div class="row visible-xs visible-sm" id="mobile_subnav">
+					<div class="col-xs-12">
+						<div class="navbar-collapse collapse mobile_subnav_content">
+							<div>
+<div class="localNavigation localnav containsResourceName resourceClass-localnav">
+
+
+
+	<ul id="localnav_mobile" class="nav navbar-nav subnav" style="float:none">
+<li class="dropdown ">
+				<a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MATLAB Central<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+<li>
+							
+	
+	<a href="/matlabcentral/?s_tid=gn_mlc">
+
+		
+
+		
+			
+			Community Home</a>
+
+							
+						</li>
+					
+						<li>
+							
+	
+	<a href="/matlabcentral/answers/index/?s_tid=gn_mlc_an">
+
+		
+
+		
+			
+			MATLAB Answers</a>
+
+							
+						</li>
+					
+						<li>
+							
+	
+	<a href="/matlabcentral/fileexchange/?s_tid=gn_mlc_fx">
+
+		
+
+		
+			
+			File Exchange</a>
+
+							
+						</li>
+					
+						<li>
+							
+	
+	<a href="/matlabcentral/cody/?s_tid=gn_mlc_cody">
+
+		
+
+		
+			
+			Cody</a>
+
+							
+						</li>
+					
+						<li>
+							
+	
+	<a href="https://blogs.mathworks.com/?s_tid=gn_mlc_blg">
+
+		
+
+		
+			
+			Blogs</a>
+
+							<hr class="local_nav_hr">
+</li>
+					
+						<li>
+							
+	
+	<a href="/matlabcentral/content/communities.html?s_tid=gn_mlc_tbc_dl">
+
+		
+
+		
+			
+			Communities</a>
+
+							
+						</li>
+					
+						<li>
+							
+	
+	<a href="/matlabcentral/community/onramps/mlc_treasure_hunt?s_tid=gn_mlc_hunt">
+
+		
+
+		
+			
+			Treasure Hunt</a>
+
+							
+						</li>
+					
+						<li>
+							
+	
+	<a href="/matlabcentral/highlights?s_tid=gn_mlc_hl">
+
+		
+
+		
+			
+			Highlights</a>
+
+							
+						</li>
+					
+						<li>
+							
+	
+	<a href="/matlabcentral/contests.html?s_tid=gn_mlc_contests">
+
+		
+
+		
+			
+			Contests</a>
+
+							
+						</li>
+					
+						<li>
+							
+	
+	<a href="/matlabcentral/content/community-advisors.html?s_tid=gn_mlc_cab">
+
+		
+
+		
+			
+			Advisors</a>
+
+							
+						</li>
+					
+						<li>
+							
+	
+	<a href="/matlabcentral/profile/badges/all?s_tid=gn_mlc_bdgs">
+
+		
+
+		
+			
+			Virtual Badges</a>
+
+							
+						</li>
+					
+						<li>
+							
+	
+	<a href="/matlabcentral/content/about.html?s_tid=gn_mlc_about">
+
+		
+
+		
+			
+			About</a>
+
+							
+						</li>
+					
+				</ul>
+</li>
+		
+			
+			
+		
+			
+			
+		
+			
+			
+		
+			
+			
+		
+			
+			
+		
+			
+			
+		
+			
+			
+		
+	
+ <li id="cody_home_list"><a href="/matlabcentral/cody/">Home</a></li> <li id="cody_groups_list"><a href="/matlabcentral/cody/groups">Problem Groups</a></li> <li id="cody_problems_list"><a href="/matlabcentral/cody/problems">Problems</a></li> <li id="nav_players_list"><a href="/matlabcentral/cody/players">Players</a></li> <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span></a><ul class="dropdown-menu"><li id="nav_solution_list"><a href="/matlabcentral/cody/solutions">Solutions</a></li><li id="cody_recent_activitiy_id"><a href="/matlabcentral/cody/activities">Recent Activity</a></li></ul></li> <li id="nav_about_cody"><a href="/matlabcentral/cody/about">Help</a></li>
+
+</ul>
+</div>
+</div>
+
+						</div>
+					</div>
+				</div>
+				<!-- Mobile Local Nav: End -->
+			</div>
+		</div>
+		
+
+
+
+	<div class="horizontal_nav hidden-xs hidden-sm ">
+		<div class="horizontal_nav_container">
+			
+			<div>
+				<div class="container">
+					<div class="row">
+						
+	<div class="col-md-8 col-lg-9 hidden-xs hidden-sm">
+		<nav class="navbar navbar-default" role="navigation" id="subnav"><div class="collapse navbar-collapse">
+				<div>
+<div class="localNavigation localnav containsResourceName resourceClass-localnav">
+
+
+
+
+
+	
+	<ul id="localnav" class="nav navbar-nav subnav" style="float:none">
+<li class="dropdown ">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MATLAB Central<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+<li>
+							
+	
+	<a href="/matlabcentral/?s_tid=gn_mlc">
+
+		
+
+		
+			
+			Community Home</a>
+
+							
+						</li>
+					
+						<li>
+							
+	
+	<a href="/matlabcentral/answers/index/?s_tid=gn_mlc_an">
+
+		
+
+		
+			
+			MATLAB Answers</a>
+
+							
+						</li>
+					
+						<li>
+							
+	
+	<a href="/matlabcentral/fileexchange/?s_tid=gn_mlc_fx">
+
+		
+
+		
+			
+			File Exchange</a>
+
+							
+						</li>
+					
+						<li>
+							
+	
+	<a href="/matlabcentral/cody/?s_tid=gn_mlc_cody">
+
+		
+
+		
+			
+			Cody</a>
+
+							
+						</li>
+					
+						<li>
+							
+	
+	<a href="https://blogs.mathworks.com/?s_tid=gn_mlc_blg">
+
+		
+
+		
+			
+			Blogs</a>
+
+							<hr class="local_nav_hr">
+</li>
+					
+						<li>
+							
+	
+	<a href="/matlabcentral/content/communities.html?s_tid=gn_mlc_tbc_dl">
+
+		
+
+		
+			
+			Communities</a>
+
+							
+						</li>
+					
+						<li>
+							
+	
+	<a href="/matlabcentral/community/onramps/mlc_treasure_hunt?s_tid=gn_mlc_hunt">
+
+		
+
+		
+			
+			Treasure Hunt</a>
+
+							
+						</li>
+					
+						<li>
+							
+	
+	<a href="/matlabcentral/highlights?s_tid=gn_mlc_hl">
+
+		
+
+		
+			
+			Highlights</a>
+
+							
+						</li>
+					
+						<li>
+							
+	
+	<a href="/matlabcentral/contests.html?s_tid=gn_mlc_contests">
+
+		
+
+		
+			
+			Contests</a>
+
+							
+						</li>
+					
+						<li>
+							
+	
+	<a href="/matlabcentral/content/community-advisors.html?s_tid=gn_mlc_cab">
+
+		
+
+		
+			
+			Advisors</a>
+
+							
+						</li>
+					
+						<li>
+							
+	
+	<a href="/matlabcentral/profile/badges/all?s_tid=gn_mlc_bdgs">
+
+		
+
+		
+			
+			Virtual Badges</a>
+
+							
+						</li>
+					
+						<li>
+							
+	
+	<a href="/matlabcentral/content/about.html?s_tid=gn_mlc_about">
+
+		
+
+		
+			
+			About</a>
+
+							
+						</li>
+					
+				</ul>
+</li>
+		
+			
+			
+		
+			
+			
+		
+			
+			
+		
+			
+			
+		
+			
+			
+		
+			
+			
+		
+			
+			
+		
+	
+ <li id="cody_home_list"><a href="/matlabcentral/cody/">Home</a></li> <li id="cody_groups_list"><a href="/matlabcentral/cody/groups">Problem Groups</a></li> <li id="cody_problems_list"><a href="/matlabcentral/cody/problems">Problems</a></li> <li id="nav_players_list"><a href="/matlabcentral/cody/players">Players</a></li> <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span></a><ul class="dropdown-menu"><li id="nav_solution_list"><a href="/matlabcentral/cody/solutions">Solutions</a></li><li id="cody_recent_activitiy_id"><a href="/matlabcentral/cody/activities">Recent Activity</a></li></ul></li> <li id="nav_about_cody"><a href="/matlabcentral/cody/about">Help</a></li>
+
+</ul>
+</div>
+</div>
+			</div>
+		</nav>
+</div>
+	<div class="col-md-4 col-lg-3 hidden-xs hidden-sm">
+		<div>
+<div class="callToAction calltoactionheader containsResourceName resourceClass-calltoactionheader">
+
+
+
+
+
+
+
+	<div class="cta_box">
+		<ul class="list-inline">
+<li class="cta_item cta_item_general">
+				
+	
+	<a href="/campaigns/products/trials.html?eventid=56763&amp;prodcode=ML&amp;s_iid=mlcans_trial_mlc_cta1" class="icon-download " data-link="lead" data-offertype="trial">
+
+		
+
+		
+			
+			Trial software</a>
+
+			</li>
+		</ul>
+</div>
+
+
+
+
+</div>
+</div>
+	</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</div>
+
+
+
+
+
+	
+
+	
+
+	
+		
+
+		
+			
+			
+				<div class="content_container" id="content_container">
+					
+					<main id="skip_link_anchor" tabindex="-1"><section><div class="mainParsys parsys containsResourceName resourceClass-parsys">
+<div class="targetcontainer containsResourceName resourceClass-targetcontainer section">
+
+
+
+<div class="personalization-container " id="web-application-body-container">
+	<div>
+<div class="targetContent parsys containsResourceName resourceClass-parsys"><div class="container">
+  <div id="toggle_edit_group">
+  
+    <div class="row add_margin_20">
+      <div class="col-xs-12">
+        <div class="playerprofile">
+          <div class="summary">
+            <div class="col-xs-12 col-sm-2">
+              <div class="avatar small text-center">
+                <p><img src="/matlabcentral/profiles/5349647.jpg" alt="" class="fluid_image"></p>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-10">
+              <div class="row add_margin_20_xs">
+                <div class="col-xs-12 col-sm-6 add_text_xs_center add_text_sm_left">
+                  <h1 class="add_margin_10">goc3</h1>
+                </div>
+                <div class="col-xs-4 col-sm-2">
+                  <div class="count text-center"><h3 class="add_font_color_general hidden-xs hidden-sm add_margin_0 value">5</h3><h5 class="add_font_color_general visible-xs visible-sm add_margin_0 value">5</h5>Rank</div>
+                </div>
+                <div class="col-xs-4 col-sm-2">
+                  <div class="accepted-count count text-center" id="player_26769_badges_count">
+                    <h3 class='add_font_color_general hidden-xs hidden-sm add_margin_0 value'>185</h3><h5 class='add_font_color_general visible-xs visible-sm add_margin_0 value'>185</h5>Badges
+                  </div>
+                </div>
+                <div class="col-xs-4 col-sm-2">
+                  <div class="count text-center"><h3 class="add_font_color_general hidden-xs hidden-sm add_margin_0 value">47107</h3><h5 class="add_font_color_general visible-xs visible-sm add_margin_0 value">47107</h5>Score</div>
+                </div>
+              </div>
+              <div class="expand_collapse">
+                <a href="/matlabcentral/profile/authors/5349647?s_tid=cody_local_to_profile">View Community Profile</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div id="contributor_activity" class="tab-container">
+          <div class="tab-bar tab-activity">
+	<ul role="tablist" class="nav nav-tabs hidden-xs">
+		<li id="activities-tab" class="active"><a href="/matlabcentral/cody/players/5349647">Activities</a></li>
+		<li id="progress-tab" class=""><a href="/matlabcentral/cody/players/5349647/progress">Progress</a></li>
+		<li id="solved-tab" class=""><a href="/matlabcentral/cody/players/5349647/solved">Solved</a></li>
+		<li id="created-problems-tab" class=""><a href="/matlabcentral/cody/players/5349647/created">Problems Created</a></li>
+		<li id="created-groups-tab" class=""><a href="/matlabcentral/cody/players/5349647/created_groups">Groups Created</a></li>
+		<li id="badges-tab" class=""><a href="/matlabcentral/cody/players/5349647/badges">Badges</a></li>
+	</ul>
+	<ul role="tablist" class="nav nav-pills list-inline small visible-xs">
+		<li id="activities-pill" class="active"><a href="/matlabcentral/cody/players/5349647">Activities</a></li>
+		<li id="progress-pill" class=""><a href="/matlabcentral/cody/players/5349647/progress">Progress</a></li>
+		<li id="solved-pill" class=""><a href="/matlabcentral/cody/players/5349647/solved">Solved</a></li>
+		<li id="created-pill" class=""><a href="/matlabcentral/cody/players/5349647/created">Problems Created</a></li>
+		<li id="created-pill" class=""><a href="/matlabcentral/cody/players/5349647/created">Problems Created</a></li>
+		  <li id="created-pill" class=""><a href="/matlabcentral/cody/players/5349647/created_groups">Groups Created</a></li>
+		<li id="badges-pill" class=""><a href="/matlabcentral/cody/players/5349647/badges">Badges</a></li>
+	</ul>
+</div>
+
+          <div class="tab-content remove_border">
+            <div class="tab-body activities">
+	<div class="row">
+		<div class="col-xs-12 col-xs-6">
+		</div>
+		<div class="col-xs-12 col-xs-6 small search-result-tools">
+			<div class="pull-right"><span class="text">1 – 50 of 4,273</span> <div class="btn-group-xs btn-group"><span class="btn btn-default page-arrows" disabled="disabled"><span class="icon-arrow-open-left" aria-label="text"></span></span><a class="btn btn-default page-arrows" href="/matlabcentral/cody/players/5349647?page=2"><span aria-label="next" class="icon-arrow-open-right"></span></a></div></div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="activities-list">
+				<div class="table">
+	        <table class="table tabled-striped">
+						    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10937093">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/51173-squares-inside-a-square/solutions/10937093">Solution 10937093</a> to <a title="Problem 51173. Squares inside a square! " class="notification-link" href="/matlabcentral/cody/problems/51173-squares-inside-a-square">Problem 51173. Squares inside a square! </a>
+    					<p class="time small add_margin_0">2 hours and 19 minutes ago</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10937058">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/51102-round-the-chord-length/solutions/10937058">Solution 10937058</a> to <a title="Problem 51102. Round the chord length!!" class="notification-link" href="/matlabcentral/cody/problems/51102-round-the-chord-length">Problem 51102. Round the chord length!!</a>
+    					<p class="time small add_margin_0">2 hours and 22 minutes ago</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10936933">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/50464-calculate-convex-quadrilateral-area-sides-and-an-angle-given/solutions/10936933">Solution 10936933</a> to <a title="Problem 50464. Calculate convex quadrilateral Area: sides and an angle given" class="notification-link" href="/matlabcentral/cody/problems/50464-calculate-convex-quadrilateral-area-sides-and-an-angle-given">Problem 50464. Calculate convex quadrilateral Area: sides and an angle given</a>
+    					<p class="time small add_margin_0">2 hours and 33 minutes ago</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10936743">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/50462-calculate-quadrilateral-area-sides-and-diagonals-given/solutions/10936743">Solution 10936743</a> to <a title="Problem 50462. Calculate quadrilateral Area: sides and diagonals given" class="notification-link" href="/matlabcentral/cody/problems/50462-calculate-quadrilateral-area-sides-and-diagonals-given">Problem 50462. Calculate quadrilateral Area: sides and diagonals given</a>
+    					<p class="time small add_margin_0">2 hours and 45 minutes ago</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10936703">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/50452-calculate-triangle-area-a-b-and-beta-is-given/solutions/10936703">Solution 10936703</a> to <a title="Problem 50452. Calculate Triangle Area: A, B and Beta is given" class="notification-link" href="/matlabcentral/cody/problems/50452-calculate-triangle-area-a-b-and-beta-is-given">Problem 50452. Calculate Triangle Area: A, B and Beta is given</a>
+    					<p class="time small add_margin_0">2 hours and 49 minutes ago</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10936633">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/50447-calculate-triangle-area-a-b-and-gamma-is-given/solutions/10936633">Solution 10936633</a> to <a title="Problem 50447. Calculate Triangle Area, A, B and Gamma is given." class="notification-link" href="/matlabcentral/cody/problems/50447-calculate-triangle-area-a-b-and-gamma-is-given">Problem 50447. Calculate Triangle Area, A, B and Gamma is given.</a>
+    					<p class="time small add_margin_0">2 hours and 55 minutes ago</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10936583">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/50192-matlab-table-temperature-coefficient-of-resistance/solutions/10936583">Solution 10936583</a> to <a title="Problem 50192. Matlab Table - Temperature Coefficient of Resistance" class="notification-link" href="/matlabcentral/cody/problems/50192-matlab-table-temperature-coefficient-of-resistance">Problem 50192. Matlab Table - Temperature Coefficient of Resistance</a>
+    					<p class="time small add_margin_0">3 hours and 1 minute ago</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10936533">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/49768-find-the-worst-traffic-yesterday/solutions/10936533">Solution 10936533</a> to <a title="Problem 49768. Find the worst traffic yesterday" class="notification-link" href="/matlabcentral/cody/problems/49768-find-the-worst-traffic-yesterday">Problem 49768. Find the worst traffic yesterday</a>
+    					<p class="time small add_margin_0">3 hours and 4 minutes ago</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10931918">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/48680-laws-of-motion-2/solutions/10931918">Solution 10931918</a> to <a title="Problem 48680. Laws of motion 2" class="notification-link" href="/matlabcentral/cody/problems/48680-laws-of-motion-2">Problem 48680. Laws of motion 2</a>
+    					<p class="time small add_margin_0">8 hours and 14 minutes ago</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10931613">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/48675-laws-of-motion-1/solutions/10931613">Solution 10931613</a> to <a title="Problem 48675. Laws of motion 1" class="notification-link" href="/matlabcentral/cody/problems/48675-laws-of-motion-1">Problem 48675. Laws of motion 1</a>
+    					<p class="time small add_margin_0">8 hours and 40 minutes ago</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10931598">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/48070-center-of-mass-es-in-3d-space/solutions/10931598">Solution 10931598</a> to <a title="Problem 48070. Center of Mass(es) in 3D Space" class="notification-link" href="/matlabcentral/cody/problems/48070-center-of-mass-es-in-3d-space">Problem 48070. Center of Mass(es) in 3D Space</a>
+    					<p class="time small add_margin_0">8 hours and 42 minutes ago</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10931553">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/48015-calculate-the-volume-of-the-football/solutions/10931553">Solution 10931553</a> to <a title="Problem 48015. Calculate the volume of the football" class="notification-link" href="/matlabcentral/cody/problems/48015-calculate-the-volume-of-the-football">Problem 48015. Calculate the volume of the football</a>
+    					<p class="time small add_margin_0">8 hours and 47 minutes ago</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10931523">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/47890-analisis-codigo-qr/solutions/10931523">Solution 10931523</a> to <a title="Problem 47890. Análisis código QR" class="notification-link" href="/matlabcentral/cody/problems/47890-analisis-codigo-qr">Problem 47890. Análisis código QR</a>
+    					<p class="time small add_margin_0">8 hours and 48 minutes ago</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10918393">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/47139-delta-x/solutions/10918393">Solution 10918393</a> to <a title="Problem 47139. delta x" class="notification-link" href="/matlabcentral/cody/problems/47139-delta-x">Problem 47139. delta x</a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 23:04</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10918383">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/47113-distance-travelled-by-vehicle/solutions/10918383">Solution 10918383</a> to <a title="Problem 47113. Distance Travelled by Vehicle" class="notification-link" href="/matlabcentral/cody/problems/47113-distance-travelled-by-vehicle">Problem 47113. Distance Travelled by Vehicle</a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 23:02</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10917008">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46923-half-the-length-of-the-vector/solutions/10917008">Solution 10917008</a> to <a title="Problem 46923. Half the length of the vector" class="notification-link" href="/matlabcentral/cody/problems/46923-half-the-length-of-the-vector">Problem 46923. Half the length of the vector</a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 20:16</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10916843">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46893-sort-accordingly/solutions/10916843">Solution 10916843</a> to <a title="Problem 46893. Sort accordingly" class="notification-link" href="/matlabcentral/cody/problems/46893-sort-accordingly">Problem 46893. Sort accordingly</a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 19:53</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10916818">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46903-sudoku/solutions/10916818">Solution 10916818</a> to <a title="Problem 46903. Sudoku" class="notification-link" href="/matlabcentral/cody/problems/46903-sudoku">Problem 46903. Sudoku</a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 19:51</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10916803">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46873-sum-of-terms-in-a-series-2/solutions/10916803">Solution 10916803</a> to <a title="Problem 46873. Sum of terms in a series 2 (★★★)" class="notification-link" href="/matlabcentral/cody/problems/46873-sum-of-terms-in-a-series-2">Problem 46873. Sum of terms in a series 2 (★★★)</a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 19:48</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="like_like_81403">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> liked <a title="Problem 46843. Modulo with 5" class="notification-link" href="/matlabcentral/cody/problems/46843-modulo-with-5">Problem 46843. Modulo with 5</a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 15:21</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10915953">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46843-modulo-with-5/solutions/10915953">Solution 10915953</a> to <a title="Problem 46843. Modulo with 5" class="notification-link" href="/matlabcentral/cody/problems/46843-modulo-with-5">Problem 46843. Modulo with 5</a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 15:21</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10915938">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46793-insert-zeros-ii/solutions/10915938">Solution 10915938</a> to <a title="Problem 46793. Insert zeros II" class="notification-link" href="/matlabcentral/cody/problems/46793-insert-zeros-ii">Problem 46793. Insert zeros II</a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 15:12</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10915928">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46813-card-games/solutions/10915928">Solution 10915928</a> to <a title="Problem 46813. Card games" class="notification-link" href="/matlabcentral/cody/problems/46813-card-games">Problem 46813. Card games</a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 15:10</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10915548">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46783-pin-code-iii/solutions/10915548">Solution 10915548</a> to <a title="Problem 46783. PIN code III" class="notification-link" href="/matlabcentral/cody/problems/46783-pin-code-iii">Problem 46783. PIN code III</a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 14:25</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10915538">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46778-pin-code-ii/solutions/10915538">Solution 10915538</a> to <a title="Problem 46778. PIN code II" class="notification-link" href="/matlabcentral/cody/problems/46778-pin-code-ii">Problem 46778. PIN code II</a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 14:22</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10915513">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46773-pin-code/solutions/10915513">Solution 10915513</a> to <a title="Problem 46773. PIN code" class="notification-link" href="/matlabcentral/cody/problems/46773-pin-code">Problem 46773. PIN code</a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 14:13</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="comment_comment_45928">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted a <a class="notification-link" href="/matlabcentral/cody/problems/46778-pin-code-ii#comment_45928">Comment</a> to <a title="Problem 46778. PIN code II" class="notification-link" href="/matlabcentral/cody/problems/46778-pin-code-ii">Problem 46778. PIN code II</a>
+    					<div class="comment">
+    						<div class="comment_body">The test suite has been updated to test against a tolerance.</div>
+    					</div>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 14:13</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10915478">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46721-intercambiar-columnas/solutions/10915478">Solution 10915478</a> to <a title="Problem 46721. Intercambiar columnas" class="notification-link" href="/matlabcentral/cody/problems/46721-intercambiar-columnas">Problem 46721. Intercambiar columnas</a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 14:10</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10915468">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46763-double-the-length-of-the-vector/solutions/10915468">Solution 10915468</a> to <a title="Problem 46763. Double the length of the vector" class="notification-link" href="/matlabcentral/cody/problems/46763-double-the-length-of-the-vector">Problem 46763. Double the length of the vector</a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 14:08</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10915448">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46716-matrix-with-increasing-numbers/solutions/10915448">Solution 10915448</a> to <a title="Problem 46716. Matrix with increasing numbers (★★★★)" class="notification-link" href="/matlabcentral/cody/problems/46716-matrix-with-increasing-numbers">Problem 46716. Matrix with increasing numbers (★★★★)</a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 14:03</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10915343">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46711-test-add-sequence-of-numbers-with-given-start-step-and-end/solutions/10915343">Solution 10915343</a> to <a title="Problem 46711. Test - Add sequence of numbers with given start, step, and end" class="notification-link" href="/matlabcentral/cody/problems/46711-test-add-sequence-of-numbers-with-given-start-step-and-end">Problem 46711. Test - Add sequence of numbers with given start, step, and end</a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 13:44</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="comment_comment_45923">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted a <a class="notification-link" href="/matlabcentral/cody/problems/46716-matrix-with-increasing-numbers#comment_45923">Comment</a> to <a title="Problem 46716. Matrix with increasing numbers (★★★★)" class="notification-link" href="/matlabcentral/cody/problems/46716-matrix-with-increasing-numbers">Problem 46716. Matrix with increasing numbers (★★★★)</a>
+    					<div class="comment">
+    						<div class="comment_body">Fortunately, there is an abbreviation that can be used that will not be triggered by searches for &amp;quot;for&amp;quot;: arrayfun(..., &amp;quot;Uni&amp;quot;, 0). Incidentally, &amp;quot;Un&amp;quot; (or &amp;quot;un&amp;quot;) can also be used while 0 is equivalent to false in this context. These abbreviations also work for cellfun.</div>
+    					</div>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 13:44</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10915313">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46642-print-hello-w0rld/solutions/10915313">Solution 10915313</a> to <a title="Problem 46642. print &#39;Hello W0rld&#39;" class="notification-link" href="/matlabcentral/cody/problems/46642-print-hello-w0rld">Problem 46642. print &#39;Hello W0rld&#39;</a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 13:38</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10915298">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46639-transform-a-decimal-number-into-a-septimal-number/solutions/10915298">Solution 10915298</a> to <a title="Problem 46639. Transform a Decimal number into a Septimal number " class="notification-link" href="/matlabcentral/cody/problems/46639-transform-a-decimal-number-into-a-septimal-number">Problem 46639. Transform a Decimal number into a Septimal number </a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 13:38</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10911983">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46612-find-the-equivalent-resistance-of-a-dc-circuit/solutions/10911983">Solution 10911983</a> to <a title="Problem 46612. Find the equivalent resistance of a dc circuit" class="notification-link" href="/matlabcentral/cody/problems/46612-find-the-equivalent-resistance-of-a-dc-circuit">Problem 46612. Find the equivalent resistance of a dc circuit</a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 0:32</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10911978">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46603-higher-lower-correct/solutions/10911978">Solution 10911978</a> to <a title="Problem 46603. Higher! Lower! Correct!" class="notification-link" href="/matlabcentral/cody/problems/46603-higher-lower-correct">Problem 46603. Higher! Lower! Correct!</a>
+    					<p class="time small add_margin_0">on 15 Apr 2023 at 0:30</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10911513">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46600-generate-a-list-of-composite-numbers/solutions/10911513">Solution 10911513</a> to <a title="Problem 46600. Generate a list of composite numbers" class="notification-link" href="/matlabcentral/cody/problems/46600-generate-a-list-of-composite-numbers">Problem 46600. Generate a list of composite numbers</a>
+    					<p class="time small add_margin_0">on 14 Apr 2023 at 20:57</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10911473">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46054-count-trailing-zeros-in-a-primorial/solutions/10911473">Solution 10911473</a> to <a title="Problem 46054. Count trailing zeros in a primorial" class="notification-link" href="/matlabcentral/cody/problems/46054-count-trailing-zeros-in-a-primorial">Problem 46054. Count trailing zeros in a primorial</a>
+    					<p class="time small add_margin_0">on 14 Apr 2023 at 20:54</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10911433">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46072-rock-paper-scissors-lizard-spock/solutions/10911433">Solution 10911433</a> to <a title="Problem 46072. Rock Paper Scissors Lizard Spock" class="notification-link" href="/matlabcentral/cody/problems/46072-rock-paper-scissors-lizard-spock">Problem 46072. Rock Paper Scissors Lizard Spock</a>
+    					<p class="time small add_margin_0">on 14 Apr 2023 at 20:49</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10910983">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46102-determine-the-sum-of-diagonal-elements-in-a-matrix-excluding-negative-and-nan-values/solutions/10910983">Solution 10910983</a> to <a title="Problem 46102. Determine the sum of diagonal elements in a matrix excluding negative and NaN values" class="notification-link" href="/matlabcentral/cody/problems/46102-determine-the-sum-of-diagonal-elements-in-a-matrix-excluding-negative-and-nan-values">Problem 46102. Determine the sum of diagonal elements in a matrix excluding negative and NaN values</a>
+    					<p class="time small add_margin_0">on 14 Apr 2023 at 19:46</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10910958">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46105-find-sum-of-numbers-on-the-cornice-of-a-matrix/solutions/10910958">Solution 10910958</a> to <a title="Problem 46105. Find sum of numbers on the cornice of a matrix." class="notification-link" href="/matlabcentral/cody/problems/46105-find-sum-of-numbers-on-the-cornice-of-a-matrix">Problem 46105. Find sum of numbers on the cornice of a matrix.</a>
+    					<p class="time small add_margin_0">on 14 Apr 2023 at 19:44</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10910933">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46108-sort-in-descending-order/solutions/10910933">Solution 10910933</a> to <a title="Problem 46108. Sort in descending order." class="notification-link" href="/matlabcentral/cody/problems/46108-sort-in-descending-order">Problem 46108. Sort in descending order.</a>
+    					<p class="time small add_margin_0">on 14 Apr 2023 at 19:41</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10910928">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46075-determine-the-factorial-of-a-number/solutions/10910928">Solution 10910928</a> to <a title="Problem 46075. Determine the factorial of a number" class="notification-link" href="/matlabcentral/cody/problems/46075-determine-the-factorial-of-a-number">Problem 46075. Determine the factorial of a number</a>
+    					<p class="time small add_margin_0">on 14 Apr 2023 at 19:39</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10910798">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46063-area-of-a-pentagon/solutions/10910798">Solution 10910798</a> to <a title="Problem 46063. Area of a pentagon" class="notification-link" href="/matlabcentral/cody/problems/46063-area-of-a-pentagon">Problem 46063. Area of a pentagon</a>
+    					<p class="time small add_margin_0">on 14 Apr 2023 at 19:30</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10910723">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46022-let-s-create-histogram-data-by-yourself/solutions/10910723">Solution 10910723</a> to <a title="Problem 46022. Let&#39;s create histogram data by yourself." class="notification-link" href="/matlabcentral/cody/problems/46022-let-s-create-histogram-data-by-yourself">Problem 46022. Let&#39;s create histogram data by yourself.</a>
+    					<p class="time small add_margin_0">on 14 Apr 2023 at 19:25</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10910693">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/46000-compute-the-harmonic-numbers/solutions/10910693">Solution 10910693</a> to <a title="Problem 46000. Compute the harmonic numbers" class="notification-link" href="/matlabcentral/cody/problems/46000-compute-the-harmonic-numbers">Problem 46000. Compute the harmonic numbers</a>
+    					<p class="time small add_margin_0">on 14 Apr 2023 at 19:23</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10910663">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/45991-find-the-position-of-planet-in-solarsystem/solutions/10910663">Solution 10910663</a> to <a title="Problem 45991. Find the position of planet in solarsystem" class="notification-link" href="/matlabcentral/cody/problems/45991-find-the-position-of-planet-in-solarsystem">Problem 45991. Find the position of planet in solarsystem</a>
+    					<p class="time small add_margin_0">on 14 Apr 2023 at 19:20</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10910638">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/45985-flag-a-convertible-string/solutions/10910638">Solution 10910638</a> to <a title="Problem 45985. Flag a convertible string" class="notification-link" href="/matlabcentral/cody/problems/45985-flag-a-convertible-string">Problem 45985. Flag a convertible string</a>
+    					<p class="time small add_margin_0">on 14 Apr 2023 at 19:18</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="comment_comment_45898">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted a <a class="notification-link" href="/matlabcentral/cody/problems/45985-flag-a-convertible-string#comment_45898">Comment</a> to <a title="Problem 45985. Flag a convertible string" class="notification-link" href="/matlabcentral/cody/problems/45985-flag-a-convertible-string">Problem 45985. Flag a convertible string</a>
+    					<div class="comment">
+    						<div class="comment_body">The test suite has been separated into individual test cases.</div>
+    					</div>
+    					<p class="time small add_margin_0">on 14 Apr 2023 at 19:16</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+    <tr class="activity">
+    	<td>
+    		<div class="row">
+    				<div class="col-xs-12" id="solution_solution_10910608">
+    				<p class="activity-details add_margin_0">
+    					<a title="Score: 47107, Badges: 185" style="color: #0076a8; text-decoration: none;" class="author_inline notification-link" data-locale-id="en" href="/matlabcentral/cody/players/5349647">goc3</a> submitted <a class="notification-link" href="/matlabcentral/cody/problems/45973-how-to-locate-the-position-of-an-element-in-a-vector-without-using-the-find-function/solutions/10910608">Solution 10910608</a> to <a title="Problem 45973. How to locate the position of an element in a vector without using the find function" class="notification-link" href="/matlabcentral/cody/problems/45973-how-to-locate-the-position-of-an-element-in-a-vector-without-using-the-find-function">Problem 45973. How to locate the position of an element in a vector without using the find function</a>
+    					<p class="time small add_margin_0">on 14 Apr 2023 at 19:14</p>
+    				</p>
+    			</div>
+    		</div>
+    	</td>
+    </tr>
+
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row small search-results-tools bottom">
+		<div class="col-xs-12">
+			<div class="pull-right">
+				<div class="pull-right"><span class="text">1 – 50 of 4,273</span> <div class="btn-group-xs btn-group"><span class="btn btn-default page-arrows" disabled="disabled"><span class="icon-arrow-open-left" aria-label="text"></span></span><a class="btn btn-default page-arrows" href="/matlabcentral/cody/players/5349647?page=2"><span aria-label="next" class="icon-arrow-open-right"></span></a></div></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</section><div>
+<div class="modalParsys parsys containsResourceName resourceClass-parsys">
+</div>
+</div>
+
+								
+
+
+
+
+
+<div id="location_content" style="display:none;"></div>
+
+<div class="modal fade" id="country-unselected" tabindex="-1" role="dialog" aria-labelledby="country-unselected-title" translate="no">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+				<img src="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/images/pic-header-mathworks-logo.20230403114551260.svg" style="width:167px; height:auto;" class="mw_logo" alt="MathWorks - Domain Selector">
+</div>
+			<div class="modal-body">
+				<div class="row add_margin_40">
+					<div class="col-xs-12">
+						<p class="h1 icon-globe add_icon_color_darkblue" id="country-unselected-title">Select a Web Site</p>
+						<p>Choose a web site to get translated content where available and see local events and offers. Based on your location, we recommend that you select: <strong class="recommended-country"></strong>.
+						</p>
+						<div class="default-recommendation">
+							<a href="#" id="recommended_domain_button" class="btn btn_color_blue containsResourceName resourceClass-button"><span class="recommended-country"></span></a>
+						</div>
+						<div class="ch-recommendation" style="display:none;">
+							<ul class="list-inline">
+<li class="add_display_block_xs add_margin_10_xs"><a href="//ch.mathworks.com" class="recommendation-button btn btn_color_blue btn-md add_display_block_xs" data-subdomain="ch" data-lang="en" data-recommended-text="Switzerland" data-default-lang="true" data-do-not-rewrite="true"><strong class="recommended-country"></strong> (English)</a></li>
+								<li class="add_display_block_xs add_margin_10_xs"><a href="//ch.mathworks.com" class="recommendation-button btn companion_btn btn-md add_display_block_xs" data-subdomain="ch" data-lang="de" data-recommended-text="Schweiz" data-do-not-rewrite="true"><strong class="recommended-country"></strong> (Deutsch)</a></li>
+								<li class="add_display_block_xs"><a href="//ch.mathworks.com" class="recommendation-button btn companion_btn btn-md add_display_block_xs" data-subdomain="ch" data-lang="fr" data-recommended-text="Suisse" data-do-not-rewrite="true"><strong class="recommended-country"></strong> (Français)</a></li>
+							</ul>
+</div>
+						<div class="zh-recommendation" style="display:none;">
+							<ul class="list-inline">
+<li class="add_display_block_xs add_margin_10_xs"><a href="//ww2.mathworks.cn" class="recommendation-button btn btn_color_blue btn-md add_display_block_xs" data-subdomain="ww2" data-lang="zh" data-recommended-text="中国" data-default-lang="true" data-do-not-rewrite="true"><strong class="recommended-country"></strong> (简体中文)</a></li>
+								<li class="add_display_block_xs"><a href="//ww2.mathworks.cn" class="recommendation-button btn companion_btn btn-md add_display_block_xs" data-subdomain="ww2" data-lang="en" data-recommended-text="China" data-do-not-rewrite="true"><strong class="recommended-country"></strong> (English)</a></li>
+							</ul>
+</div>
+					</div>
+				</div>
+				<p>You can also select a web site from the following list</p>
+				<div class="alert alert-warning" id="china_performance_alert" style="display:none;">
+<span class="alert_icon icon-alert-warning"></span>
+					<h2>How to Get Best Site Performance</h2>
+					<p>Select the China site (in Chinese or English) for best site performance. Other MathWorks country sites are not optimized for visits from your location.</p>
+				</div>
+				<div class="row add_margin_20">
+					<div class="col-sm-4 col-md-3">
+						<h3 class="add_bottom_rule">Americas</h3>
+						<ul class="list-unstyled">
+<li>
+<a href="//la.mathworks.com" class="domain_selector_link" data-country-code="LA" data-subdomain="la" data-lang="es" data-default-lang="true" data-selected-text="América Latina" data-recommended-text="América Latina" data-do-not-rewrite="true">América Latina</a> (Español)
+							</li>
+							<li>
+<a href="//www.mathworks.com" class="domain_selector_link" data-country-code="CA" data-subdomain="www" data-lang="en" data-do-not-rewrite="true">Canada</a> (English)
+							</li>
+							<li>
+<a href="//www.mathworks.com" class="domain_selector_link" data-country-code="US" data-subdomain="www" data-lang="en" data-default-lang="true" data-selected-text="United States" data-recommended-text="United States" data-do-not-rewrite="true">United States</a> (English)
+							</li>
+						</ul>
+</div>
+					<div class="col-sm-4 col-md-6">
+						<h3 class="add_bottom_rule">Europe</h3>
+						<div class="row">
+							<div class="col-xs-6 col-sm-12 col-md-6">
+								<ul class="list-unstyled add_margin_0_sm">
+<li>
+<a href="//nl.mathworks.com" class="domain_selector_link" data-country-code="BE" data-subdomain="nl" data-lang="en" data-do-not-rewrite="true">Belgium</a> (English)
+									</li>
+									<li>
+<a href="//se.mathworks.com" class="domain_selector_link" data-country-code="DK" data-subdomain="se" data-lang="en" data-do-not-rewrite="true">Denmark</a> (English)
+									</li>
+									<li>
+<a href="//de.mathworks.com" class="domain_selector_link" data-country-code="DE" data-subdomain="de" data-lang="de" data-default-lang="true" data-selected-text="Deutschland" data-recommended-text="Deutschland" data-do-not-rewrite="true">Deutschland</a> (Deutsch)
+									</li>
+									<li>
+<a href="//es.mathworks.com" class="domain_selector_link" data-country-code="ES" data-subdomain="es" data-lang="es" data-default-lang="true" data-selected-text="España" data-recommended-text="España" data-do-not-rewrite="true">España</a> (Español)
+									</li>
+									<li>
+<a href="//se.mathworks.com" class="domain_selector_link" data-country-code="FI" data-subdomain="se" data-lang="en" data-do-not-rewrite="true">Finland</a> (English)
+									</li>
+									<li>
+<a href="//fr.mathworks.com" class="domain_selector_link" data-country-code="FR" data-subdomain="fr" data-lang="fr" data-default-lang="true" data-selected-text="France" data-recommended-text="France" data-do-not-rewrite="true">France</a> (Français)
+									</li>
+									<li>
+<a href="//uk.mathworks.com" class="domain_selector_link" data-country-code="IE" data-subdomain="uk" data-lang="en" data-do-not-rewrite="true">Ireland</a> (English)
+									</li>
+									<li>
+<a href="//it.mathworks.com" class="domain_selector_link" data-country-code="IT" data-subdomain="it" data-lang="it" data-default-lang="true" data-selected-text="Italia" data-recommended-text="Italia" data-do-not-rewrite="true">Italia</a> (Italiano)
+									</li>
+									<li>
+<a href="//nl.mathworks.com" class="domain_selector_link" data-country-code="LU" data-subdomain="nl" data-lang="en" data-do-not-rewrite="true">Luxembourg</a> (English)
+									</li>
+								</ul>
+</div>
+							<div class="col-xs-6 col-sm-12 col-md-6">
+								<ul class="list-unstyled">
+<li>
+<a href="//nl.mathworks.com" class="domain_selector_link" data-country-code="NL" data-subdomain="nl" data-lang="en" data-default-lang="true" data-selected-text="Benelux" data-recommended-text="Netherlands" data-do-not-rewrite="true">Netherlands</a> (English)
+									</li>
+									<li>
+<a href="//se.mathworks.com" class="domain_selector_link" data-country-code="NO" data-subdomain="se" data-lang="en" data-do-not-rewrite="true">Norway</a> (English)
+									</li>
+									<li>
+<a href="//de.mathworks.com" class="domain_selector_link" data-country-code="AT" data-subdomain="de" data-lang="de" data-do-not-rewrite="true">Österreich</a> (Deutsch)
+									</li>
+									<li>
+<a href="//www.mathworks.com" class="domain_selector_link" data-country-code="PT" data-subdomain="www" data-lang="en" data-do-not-rewrite="true">Portugal</a> (English)
+									</li>
+									<li>
+<a href="//se.mathworks.com" class="domain_selector_link" data-country-code="Sweden" data-subdomain="se" data-lang="en" data-default-lang="true" data-selected-text="Nordic" data-recommended-text="Sweden" data-do-not-rewrite="true">Sweden</a> (English)
+									</li>
+									<li>Switzerland
+										<ul class="list-unstyled add_indent_20">
+<li>
+<a href="//ch.mathworks.com" class="domain_selector_link" data-country-code="CH" data-subdomain="ch" data-lang="de" data-selected-text="Schweiz" data-recommended-text="Schweiz" data-do-not-rewrite="true">Deutsch</a>
+											</li>
+											<li>
+<a href="//ch.mathworks.com" class="domain_selector_link" data-country-code="CH" data-subdomain="ch" data-lang="en" data-default-lang="true" data-selected-text="Switzerland" data-recommended-text="Switzerland" data-do-not-rewrite="true">English</a>
+											</li>
+											<li>
+<a href="//ch.mathworks.com" class="domain_selector_link" data-country-code="CH" data-subdomain="ch" data-lang="fr" data-selected-text="Suisse" data-recommended-text="Suisse" data-do-not-rewrite="true">Français</a>
+											</li>
+										</ul>
+</li>
+									<li>
+<a href="//uk.mathworks.com" class="domain_selector_link" data-country-code="GB" data-subdomain="uk" data-lang="en" data-default-lang="true" data-selected-text="United Kingdom" data-recommended-text="United Kingdom" data-do-not-rewrite="true">United Kingdom</a>
+										(English)
+									</li>
+								</ul>
+</div>
+						</div>
+					</div>
+					<div class="col-sm-4 col-md-3">
+						<h3 class="add_bottom_rule">Asia Pacific</h3>
+						<ul class="list-unstyled">
+<li>
+<a href="//au.mathworks.com" class="domain_selector_link" data-country-code="AU" data-subdomain="au" data-lang="en" data-default-lang="true" data-selected-text="Australia" data-recommended-text="Australia" data-do-not-rewrite="true">Australia</a> (English)
+							</li>
+							<li>
+<a href="//in.mathworks.com" class="domain_selector_link" data-country-code="IN" data-subdomain="in" data-lang="en" data-default-lang="true" data-selected-text="India" data-recommended-text="India" data-do-not-rewrite="true">India</a> (English)
+							</li>
+							<li>
+<a href="//au.mathworks.com" class="domain_selector_link" data-country-code="NZ" data-subdomain="au" data-lang="en" data-do-not-rewrite="true">New Zealand</a> (English)
+							</li>
+							<li>中国
+								<ul class="list-unstyled add_indent_20">
+<li>
+<a href="//ww2.mathworks.cn" class="domain_selector_link" data-country-code="CN" data-subdomain="ww2" data-lang="zh" data-default-lang="true" data-selected-text="中国" data-recommended-text="中国" data-do-not-rewrite="true">简体中文<span class="sr-only">Chinese</span>
+										</a>
+									</li>
+									<li>
+<a href="//ww2.mathworks.cn" class="domain_selector_link" data-country-code="CN" data-subdomain="ww2" data-lang="en" data-default-lang="true" data-selected-text="China" data-recommended-text="China" data-do-not-rewrite="true">English</a>
+									</li>
+								</ul>
+</li>
+							<li>
+<a href="//jp.mathworks.com" class="domain_selector_link" data-country-code="JP" data-subdomain="jp" data-lang="ja" data-default-lang="true" data-selected-text="日本" data-recommended-text="日本" data-do-not-rewrite="true">日本<span class="sr-only">Japanese</span></a> (日本語)
+							</li>
+							<li>
+<a href="//kr.mathworks.com" class="domain_selector_link" data-country-code="KR" data-subdomain="kr" data-lang="ko" data-default-lang="true" data-selected-text="한국" data-recommended-text="한국" data-do-not-rewrite="true">한국<span class="sr-only">Korean</span></a> (한국어)
+							</li>
+						</ul>
+</div>
+				</div>
+				<p class="text-center"><a href="#" class="worldwide_link">Contact your local office</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+    
+<script src="/etc.clientlibs/mathworks/clientlibs/customer-ui/components/domainselector.min.20230403114551260.js"></script></main>
+</div>
+			<div class="cta_container_mobile visible-sm visible-xs">
+	<div class="container-fluid">      
+		<div class="row">
+			<div class="col-xs-12">
+				<div>
+<div class="callToAction calltoactionheader containsResourceName resourceClass-calltoactionheader">
+
+
+
+
+
+
+
+	<div class="cta_box">
+		<ul class="list-inline">
+<li class="cta_item cta_item_general">
+				
+	
+	<a href="/campaigns/products/trials.html?eventid=56763&amp;prodcode=ML&amp;s_iid=mlcans_trial_mlc_cta1" class="icon-download " data-link="lead" data-offertype="trial">
+
+		
+
+		
+			
+			Trial software</a>
+
+			</li>
+		</ul>
+</div>
+
+
+
+
+</div>
+</div>
+			</div>
+		</div>
+	</div>
+</div>
+			
+			
+
+
+
+<footer id="footer" class="bs-footer"><div class="fat_footer_container">
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="fat_footer">
+<div class="fatFooterParsys iparsys parsys resourceClass-iparsys containsResourceName">
+<div class="section">
+<div class="new containsResourceName resourceClass-new"></div>
+</div>
+<div class="iparys_inherited">
+<div class="fatFooterParsys iparsys parsys containsResourceName resourceClass-par">
+<div class="cqColumns containsResourceName section resourceClass-columns">
+<div class="row   ">
+
+	
+		<div class=" col-xs-12 col-md-12 col-lg-3 add_margin_20">
+<div class="1 parsys containsResourceName resourceClass-parsys">
+<div class="text containsResourceName section resourceClass-text">
+<div class="mw-text   ">
+	<p class="h4 add_font_futura_medium add_margin_0">MathWorks</p>
+<p><i>Accelerating the pace of engineering and science</i></p>
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text">
+<div class="mw-text   ">
+	<p>MathWorks is the leading developer of mathematical computing software for engineers and scientists.</p>
+</div>
+</div>
+<div class="text containsResourceName section resourceClass-text">
+<div class="mw-text   ">
+	<p><a href="/discovery.html?s_tid=hp_ff_a_discover" data-target="same">Discover…</a></p>
+</div>
+</div>
+
+</div>
+</div>
+	
+		<div class=" col-xs-12 col-md-12 col-lg-9">
+<div class="2 parsys containsResourceName resourceClass-parsys">
+<div class="cqColumns containsResourceName section resourceClass-columns">
+<div class="row add_margin_20  ">
+
+	
+		<div class=" col-xs-12 col-sm-2">
+<div class="1 parsys containsResourceName resourceClass-parsys">
+<div class="text containsResourceName section resourceClass-text">
+<div class="mw-text   ">
+	<p class="ff_section_title"><a href="#fatfooter_products" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="fatfooter_products">Explore Products<span class="caret"></span></a></p>
+<div class="collapse" id="fatfooter_products">
+ <ul class="list-unstyled">
+<li><a href="/products/matlab.html?s_tid=hp_ff_p_matlab">MATLAB</a></li>
+  <li><a href="/products/simulink.html?s_tid=hp_ff_p_simulink">Simulink</a></li>
+  <li><a href="/products/matlab/student.html?s_tid=hp_ff_p_student">Student Software</a></li>
+  <li><a href="/hardware-support/home.html?s_tid=hp_ff_p_hwsupport">Hardware Support</a></li>
+  <li><a href="/matlabcentral/fileexchange/?s_tid=hp_ff_p_fx">File Exchange</a></li>
+ </ul>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+	
+		<div class=" col-xs-12 col-sm-2">
+<div class="2 parsys containsResourceName resourceClass-parsys">
+<div class="text containsResourceName section resourceClass-text">
+<div class="mw-text   ">
+	<p class="ff_section_title"><a href="#fatfooter_buy" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="fatfooter_buy">Try or Buy<span class="caret"></span></a></p>
+<div class="collapse" id="fatfooter_buy">
+ <ul class="list-unstyled">
+<li><a href="/downloads/web_downloads/?s_tid=hp_ff_t_downloads">Downloads</a></li>
+  <li><a href="/campaigns/products/trials.html?s_tid=hp_ff_p_trial" data-target="same" data-link="lead" data-offertype="trial">Trial Software</a></li>
+  <li><a href="/company/aboutus/contact_us/contact_sales.html?s_tid=hp_ff_t_sales" data-link="lead" data-offertype="Contact Sales">Contact Sales</a></li>
+  <li><a href="/pricing-licensing.html?s_tid=hp_ff_t_pricing" data-link="lead" data-offertype="pl">Pricing and Licensing</a></li>
+  <li><a href="/store/?s_tid=hp_ff_t_buy" data-link="store">How to Buy</a></li>
+ </ul>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+	
+		<div class=" col-xs-12 col-sm-2">
+<div class="3 parsys containsResourceName resourceClass-parsys">
+<div class="text containsResourceName section resourceClass-text">
+<div class="mw-text   ">
+	<p class="ff_section_title"><a href="#fatfooter_use" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="fatfooter_use">Learn to Use<span class="caret"></span></a></p>
+<div class="collapse" id="fatfooter_use">
+ <ul class="list-unstyled">
+<li><a href="/help/?s_tid=hp_ff_l_doc" data-target="same">Documentation</a></li>
+  <li><a href="/support/learn-with-matlab-tutorials.html?s_tid=hp_ff_l_tutorials" data-target="same">Tutorials</a></li>
+  <li><a href="/help/examples.html?s_tid=hp_ff_l_examples" data-target="same">Examples</a></li>
+  <li><a href="/videos.html?s_tid=hp_ff_l_videos">Videos and Webinars</a></li>
+  <li><a href="/learn/training.html?s_tid=hp_ff_l_training">Training</a></li>
+ </ul>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+	
+		<div class=" col-xs-12 col-sm-2">
+<div class="4 parsys containsResourceName resourceClass-parsys">
+<div class="text containsResourceName section resourceClass-text">
+<div class="mw-text   ">
+	<p class="ff_section_title"><a href="#fatfooter_support" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="fatfooter_support">Get Support<span class="caret"></span></a></p>
+<div class="collapse" id="fatfooter_support">
+ <ul class="list-unstyled">
+<li><a href="/help/install/?s_tid=hp_ff_s_install">Installation Help</a></li>
+  <li><a href="/matlabcentral/answers/index?s_tid=hp_ff_s_answers">MATLAB Answers</a></li>
+  <li><a href="/services/consulting.html?s_tid=hp_ff_s_consulting">Consulting</a></li>
+  <li><a href="/licensecenter/?s_tid=hp_ff_s_license">License Center</a></li>
+  <li><a href="/support/contact_us.html?s_tid=hp_ff_s_support">Contact Support</a></li>
+ </ul>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+	
+		<div class=" col-xs-12 col-sm-2">
+<div class="5 parsys containsResourceName resourceClass-parsys">
+<div class="text containsResourceName section resourceClass-text">
+<div class="mw-text   ">
+	<p class="ff_section_title"><a href="#fatfooter_about" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="fatfooter_about">About MathWorks<span class="caret"></span></a></p>
+<div class="collapse" id="fatfooter_about">
+ <ul class="list-unstyled">
+<li><a href="/company/jobs/opportunities.html?s_tid=hp_ff_a_careers">Careers</a></li>
+  <li><a href="/company/newsroom.html?s_tid=hp_ff_a_newsroom">Newsroom</a></li>
+  <li><a href="/company/aboutus/soc_mission.html?s_tid=hp_ff_a_socialmission">Social Mission</a></li>
+  <li><a href="/company/customer-stories.html?s_tid=hp_ff_a_customerstories">Customer Stories</a></li>
+  <li><a href="/company.html?s_tid=hp_ff_a_company">About MathWorks</a></li>
+ </ul>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+	
+</div>
+</div>
+
+</div>
+</div>
+	
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+		</div>
+	</div>
+</div>
+</div>
+
+	<!-- BASIC FOOTER CONTENT - Begin -->
+	<div class="container">
+		<div class="footer">
+			<div class="row">
+				<div class="col-xs-12 col-md-9">
+					<ul class="countrynav">
+<!-- Code to Remove Tracking from Previous page and add new tracking --><li class="footernav_country">
+							<a href="#" data-toggle="modal" id="domainButton" data-target="#country-unselected">
+								<span class="sr-only">Select a Web Site</span>
+								<span class="icon-globe icon_color_quinary icon_16"></span><span id="countrySelectorButtonText">United States</span>
+							</a>
+						</li>
+					</ul>
+<div class="clearfix"></div>
+					<div>
+<div class="footerNavigation footernavigation containsResourceName resourceClass-footernavigation">
+
+
+
+
+	<ul class="footernav  ">
+<li class="footernav_footernav_patents">
+			
+	
+	<a href="/company/aboutus/policies_statements/trust-center.html?s_tid=gf_tc">
+
+		
+
+		
+			
+			Trust Center</a>
+
+		</li>
+	
+		<li class="footernav_footernav_trademarks">
+			
+	
+	<a href="/company/aboutus/policies_statements/trademarks.html?s_tid=gf_trd">
+
+		
+
+		
+			
+			Trademarks</a>
+
+		</li>
+	
+		<li class="footernav_footernav_privacy">
+			
+	
+	<a href="/company/aboutus/policies_statements.html?s_tid=gf_priv">
+
+		
+
+		
+			
+			Privacy Policy</a>
+
+		</li>
+	
+		<li class="footernav_footernav_piracy">
+			
+	
+	<a href="/company/aboutus/policies_statements/piracy.html?s_tid=gf_pir">
+
+		
+
+		
+			
+			Preventing Piracy</a>
+
+		</li>
+	
+		<li class="footernav_footernav_status">
+			
+	
+	<a href="https://status.mathworks.com/?s_tid=gf_application">
+
+		
+
+		
+			
+			Application Status</a>
+
+		</li>
+	
+		<li class="footernav_footernav_terms">
+			
+	
+	<a href="/matlabcentral/content/terms-of-use.html?s_tid=gf_terms">
+
+		
+
+		
+			
+			Terms of Use</a>
+
+		</li>
+	</ul>
+</div>
+</div>
+					
+					<div>
+<div class="footerCompanyAddress footercompanyaddress containsResourceName resourceClass-footercompanyaddress">
+
+
+
+	
+	<div class="cq-placeholder" data-emptytext="Footer Company Address"></div>
+
+</div>
+</div>
+					
+					<div>
+<div class="footerParsys iparsys parsys resourceClass-iparsys containsResourceName">
+<div class="section">
+<div class="new containsResourceName resourceClass-new"></div>
+</div>
+<div class="iparys_inherited">
+<div class="footerParsys iparsys parsys containsResourceName resourceClass-par"></div>
+</div>
+</div>
+</div>
+					
+					<div class="clearfix"></div>
+					<p class="copyright">© 1994-2023 The MathWorks, Inc.</p>
+				</div>
+				<div class="clearfix visible-sm add_margin_10"></div>
+				<div class="col-xs-12 col-md-3">
+					<div>
+<div class="socialMediaIconParsys iparsys parsys resourceClass-iparsys containsResourceName">
+<div class="section">
+<div class="new containsResourceName resourceClass-new"></div>
+</div>
+<div class="iparys_inherited">
+<div class="socialMediaIconParsys iparsys parsys containsResourceName resourceClass-par">
+<div class="socialmediaicon containsResourceName resourceClass-socialmediaicon section">
+
+
+
+
+
+	<div class="social_media  ">
+		<ul class="social_media_icons list-unstyled  ">
+<li>
+				<a href="https://www.facebook.com/MATLAB" class="svg_link" rel="noreferrer" target="_blank">
+					<img class="ico_facebook" alt="Facebook" src="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/images/ico-facebook.20230403114551260.svg"></a>
+
+				 
+				
+			</li>
+			
+			<li>
+				<a href="https://twitter.com/MATLAB" class="svg_link" rel="noreferrer" target="_blank">
+					<img class="ico_twitter" alt="Twitter" src="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/images/ico-twitter.20230403114551260.svg"></a>
+
+				 
+				
+			</li>
+			
+			<li>
+				<a href="https://www.instagram.com/matlab/" class="svg_link" rel="noreferrer" target="_blank">
+					<img class="ico_instagram" alt="Instagram" src="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/images/ico-instagram.20230403114551260.svg"></a>
+
+				 
+				
+			</li>
+			
+			<li>
+				<a href="https://www.youtube.com/user/MATLAB" class="svg_link" rel="noreferrer" target="_blank">
+					<img class="ico_youtube" alt="YouTube" src="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/images/ico-youtube.20230403114551260.svg"></a>
+
+				 
+				
+			</li>
+			
+			<li>
+				<a href="https://www.linkedin.com/company/the-mathworks_2" class="svg_link" rel="noreferrer" target="_blank">
+					<img class="ico_linkedin" alt="LinkedIn" src="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/images/ico-linkedin.20230403114551260.svg"></a>
+
+				 
+				
+			</li>
+			
+			<li>
+				<a href="/company/rss.html" class="svg_link" rel="noreferrer">
+					<img class="ico_rss" alt="RSS" src="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common/resources/images/ico-rss.20230403114551260.svg"></a>
+
+				 
+				
+			</li>
+			
+			
+		</ul>
+<div class="clearfix"></div>
+	</div>
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+					
+					<div class="clearfix"></div>
+					<p class="pull_right_sm pull_right_md pull_right_lg"><small class="percent_90"><em>Join the conversation</em></small></p>
+				</div>
+			</div>
+			
+		</div>
+
+	</div>
+	<!-- BASIC FAT FOOTER CONTENT - End -->
+</footer><script src="/etc.clientlibs/mathworks/clientlibs/customer-ui/components/domainredirect.min.20230403114551260.js"></script><script src="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/akamai.min.20230403114551260.js"></script><script src="/etc.clientlibs/mathworks/clientlibs/customer-ui/components/lodash.min.20230403114551260.js"></script><script src="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/common.min.20230403114551260.js"></script><script src="/etc.clientlibs/mathworks/clientlibs/customer-ui/templates/matlabcentral.min.20230403114551260.js"></script><div id="web-application-footer-assets"></div>
+
+		
+			
+    
+<script src="/etc.clientlibs/mathworks/clientlibs/customer-ui/components/matrixmenu.min.20230403114551260.js"></script><script>
+				if (typeof matrix !== 'undefined') {
+					matrix.show({
+						largeId: 'headernav_matrix',
+						smallId: ['matrix_affordance_container_mobile', 'matrix_menu_container_mobile'],
+						env: 'prod',
+						tier: 'DOTCOM',
+						lang: 'en'
+					});
+				}
+			</script>
+<noscript><img src="https://www.mathworks.com/akam/13/pixel_7fdb16d0?a=dD1kOWZlNzhjYjJlMDE0NWU1NDQxM2RkOGUwY2NlM2QzM2ZjNTViYmM3JmpzPW9mZg==" style="visibility: hidden; position: absolute; left: -999px; top: -999px;" /></noscript><script type="text/javascript"  src="/spca4QLP9/B/rE8-ergw/aEiY6wfzfu/EHwtRzUrGAU/TBNmez4/eIUA"></script></body>
+</html>
