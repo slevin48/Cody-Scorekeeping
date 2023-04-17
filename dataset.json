@@ -1,0 +1,36 @@
+{
+  "planets": [
+    {
+      "name": "Mercury",
+      "diameter": 3031.9
+    },
+    {
+      "name": "Venus",
+      "diameter": 7520.8
+    },
+    {
+      "name": "Earth",
+      "diameter": 7926.3
+    },
+    {
+      "name": "Mars",
+      "diameter": 4222.6
+    },
+    {
+      "name": "Jupiter",
+      "diameter": 88846
+    },
+    {
+      "name": "Saturn",
+      "diameter": 74898
+    },
+    {
+      "name": "Uranus",
+      "diameter": 31763
+    },
+    {
+      "name": "Neptune",
+      "diameter": 30775
+    }
+  ]
+}
