@@ -7,5 +7,5 @@ const data = await readJSON(filename)
 // Pluck a specific key off
 // and write it out to a different file
 // Careful! any uncaught errors and the workflow will fail, committing nothing.
-const newfile = `subset_of_${filename}`
-await writeJSON(newfile, data.path.to.something)
+// const newfile = `subset_of_${filename}`
+// await writeJSON(newfile, data.path.to.something)

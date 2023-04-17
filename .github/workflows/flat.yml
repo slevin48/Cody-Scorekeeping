@@ -1,4 +1,4 @@
-name: data
+name: dataset
 on:
   schedule:
     - cron: 0 0 * * *
@@ -20,4 +20,4 @@ jobs:
         uses: githubocto/flat@v3
         with:
           http_url: https://raw.githubusercontent.com/gulley/collatz/master/planets.json
-          downloaded_filename: data.json
+          downloaded_filename: dataset.json
