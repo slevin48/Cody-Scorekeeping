@@ -19,4 +19,5 @@ jobs:
       - name: Fetch data
         uses: githubocto/flat@v3
         with:
-          http_url: https://www.mathworks.com/matlabcentral/cody/players/5349647
+          http_url: http://www.mathworks.com/matlabcentral/cody/players/5349647
+          downloaded_filename: data.json
