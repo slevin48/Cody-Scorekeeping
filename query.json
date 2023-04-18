@@ -1,5 +1,4 @@
 {
-    "url": "IGNORED",
     "method": "get",
     "headers": { "Accept": "application:json"}
 }
