@@ -1,6 +1,5 @@
 {
-  "method": "get",
-  "data": {
-    "query": "{'headers': { 'Accept': 'application:json'}"
-  }
+    "url": "IGNORED",
+    "method": "get",
+    "headers": { "Accept": "application:json"}
 }
