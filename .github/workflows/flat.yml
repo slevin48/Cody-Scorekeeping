@@ -21,3 +21,4 @@ jobs:
         with:
           http_url: https://www.mathworks.com/matlabcentral/cody/players?term=id%3A5349647
           downloaded_filename: goc_data.html
+          axios_config: query.json
